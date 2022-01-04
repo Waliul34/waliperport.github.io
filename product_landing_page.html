@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="css/all.css">
+	<title>Product Landing Page</title>
+	<script src="https://kit.fontawesome.com/2edb20ae2a.js" crossorigin="anonymous"></script>
+<style>
+html {
+  font-size: 15px;
+}
+
+body {
+  font-weight: 400;
+  background: linear-gradient(90deg, #21ff46, yellow, #21ff46);
+  margin: 0 100px;
+}
+
+#page-wrapper {
+  position: relative;
+}
+
+header {
+  display: flex;
+  
+  top: 0px;
+  min-height: 75px;
+  padding: 0px 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 60vw;
+  position: relative;
+}
+
+img {
+  max-width: 200px;
+  max-height: 60px;
+  display: flex;
+  margin-left: 20px;
+}
+
+nav > ul {
+  weight: 400;
+  width: 36vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 0 20px;
+  height: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 3px green solid;
+  cursor: pointer;
+}
+
+grid {
+  display: flex;
+}
+
+.desc {
+  height: 120px;
+  width: 80vw;
+  padding: 5px;
+}
+
+#how-it-works {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#pricing {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+
+.level {
+  background-color: #ddd;
+  color: black;
+  padding: 10px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.product > button {
+  border: 0;
+  margin: 15px 0;
+  background-color: #f1c40f;
+  font-weight: 600;
+}
+
+footer > span {
+  margin-top: -50px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9em;
+  color: #444;
+  
+}
+
+</style>
+</head>
+<body>
+<div id="page-wrapper">
+  
+  <header id="header">
+    <div class="logo">
+      <img
+        id="header-img"
+        src="https://i.ibb.co/F3ZRBsW/red-dredd-logo.png"
+           alt="red_dredd logo" />
+    </div>
+    
+    <nav id="nav-bar">
+      
+      <ul>
+        <li><a class="nav-link" href="#features">Features</a></li>
+        <li><a class="nav-link" href="#how-it-works">How It Works</a></li>
+        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="hero">
+    <h2>Your bro, just when you need</h2>
+    <form id="form" action="https://www.freecodecamp.com/email-submit">
+      <input name="email"
+             id="email"
+             type="email"
+             placeholder="Enter your email"
+             required />
+      <input id="submit" type="submit" value="Get Started" class="btn" />
+    </form>
+  </section>
+  
+  <div class="container">
+    <section id="features">
+      <div class="grid">
+        <div class="icon"><i class=""></i></div>
+        <div class="desc">
+          <h2><i class="fab fa-500px"></i> Premium Friendship</h2>
+          <p>I use the highest quality microphone so that you can hear me loud and clear during a match.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="icon"><i class=""></i></div>
+        <div class="desc">
+          <h2><i class="fas fa-shipping-fast"></i> Fast Response</h2>
+          <p>You'll always find me beside you because I respond as soon as I get my friend's message.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="icon"><i class=""></i></div>
+        <div class="desc">
+          <h2><i class="fab fa-angellist"></i> Quality Assurance</h2>
+          <p>I use the highest quality microphone so that you can hear me loud and clear during a match.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="how-it-works">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/e-mv1hb4Mc8" title="Random Valorant DM Kills" frameborder="2" allowfullscreen></iframe>
+    </section>
+    
+    <section id="pricing">
+      <div class="product" id="spike-rush">
+        <div class="level">Spike Rush</div>
+        <h2>100 Taka</h2>
+        <ol>
+          <li>1 Hour</li>
+          <li>5 Matches Max</li>
+          <li>Raze</li>
+        </ol>
+        <button class="btn">Select</button>
+      </div>
+      <div class="product" id="unrated">
+        <div class="level">Unrated</div>
+        <h2>200 Taka</h2>
+        <ol>
+          <li>2 Hour</li>
+          <li>3 Matches Max</li>
+          <li>Chamber</li>
+        </ol>
+        <button class="btn">Select</button>
+      </div>
+      <div class="product" id="competitive">
+        <div class="level">Competitive</div>
+        <h2>250 Taka</h2>
+        <ol>
+          <li>2 Hour</li>
+          <li>2 Matches Max</li>
+          <li>Skye or Viper</li>
+        </ol>
+        <button class="btn">Select</button>
+      </div>
+    </section>
+    
+    <footer>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <span>Copyright 2021, Waliul Islam Sumon</span>
+    </footer>
+    
+  </div>
+  
+</div>
+</body>
+</html>

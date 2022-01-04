@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Waliul's Portfolio</title>
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+<style>
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #1abc9c;;
+  --main-blue: #065900;
+  --main-gray: #00479e;
+}
+
+* { /*base reset, without it, there happens to be some extra margin*/
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;   /*without it, there's extra white at the right side*/
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px; /* or 62.5%, 10px is 62.5% of 16px which is default size*/
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 75em) { /* 1200px is 75em (1200px/16px)*/
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 61.25em) { /* 980px is 61.25em*/
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 28.75em) { /* 460px is 61.25em*/
+  html {
+    font-size: 40%;
+  }
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-red);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+@media (max-width: 28.75rem) {
+  .nav {
+    justify-content: center;
+  }
+  
+  .nav-list {
+    margin: 0 1rem;
+  }
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+
+.nav-list a:hover {
+  background: var(--main-blue);
+}
+
+.welcome-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; /*100% of the viewport IMPORTANT*/
+  background-color: #000;
+  background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 3%, rgba(9,9,121,1) 19%, rgba(5,105,184,1) 87%, rgba(0,212,255,1) 100%);
+}
+
+.welcome-section p{
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--main-red);
+}
+
+
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: rgb(0,14,117);
+background: linear-gradient(90deg, rgba(0,14,117,1) 0%, rgba(0,186,12,1) 50%, rgba(69,113,252,1) 100%);
+}
+
+.projects-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+}
+
+@media (max-width: 28.2rem) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+#dev-image {
+  display: block;
+  max-height: 70%;
+  
+}
+
+@media (max-width: 980px) {
+  #dev-image {
+    width: 80%;
+  }
+}
+
+/* Responsive image grid making*/
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625rem){
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* End of Responsive image grid making*/
+
+.project {
+  background: var(--main-gray);
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 1s ease-out;
+}
+
+.project:hover .code {
+  color: #ff7f50;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 1rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 1s ease-out;
+}
+
+.btn-show-all:hover {
+  background: var(--main-red);
+}
+
+.btn-show-all i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 1s ease-out;
+}
+
+.btn-show-all:hover i {
+  transform: translateX(5px);
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: rgb(251,63,63);
+background: linear-gradient(90deg, rgba(251,63,63,1) 0%, rgba(133,70,252,1) 100%);
+}
+
+.contact-section-header h2{
+  font-size: 6rem;
+}
+
+.contact-section-header p{
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 1s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(10px);
+}
+
+footer {
+  font-weigth: 300;
+  display: flex;
+  justify-content: space-evenly;
+  background: var(--main-gray);
+  border-top: 4px solid var(--main-red);
+}
+
+footer p {
+  margin: 2rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+	<script src="https://kit.fontawesome.com/2edb20ae2a.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet"/>
+
+
+<nav id="navbar" class="nav">
+  <ul class="nav-list">
+    <li><a href="#welcome-section">About</a></li>
+    <li><a href="#projects">Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="welcome-section" class="welcome-section">
+    <img id="dev-image" src="https://i.ibb.co/2KCr876/waliul.png" alt="Waliul, the developer">
+  <h1>Hello there! I am Waliul</h1>
+  <p>a web developer</p>
+</section>
+
+
+<section id="projects" class="projects-section">
+  <h2 class="projects-section-header">These are some of my projects</h2>
+  
+  <div class="projects-grid">
+    
+    <a href="tribute_mujib.html" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/6WF7X0Y/tribute-page.png" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Tribute Page <span class="code">&#47;&gt;</span></p>
+    </a>
+    
+    <a href="survey_form.html" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/hyJmWDQ/survey-form.png" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Survey Form <span class="code">&#47;&gt;</span></p>
+    </a>
+    
+    <a href="product_landing_page.html" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/tcztWSv/product-landing-page.png" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Product Landing Page <span class="code">&#47;&gt;</span></p>
+    </a>
+    
+    <a href="technical_documentation_page.html" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/C536p62/documentation.png" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Technical Documentation<span class="code">&#47;&gt;</span></p>
+    </a>
+    
+    <a href="https://github.com/Waliul34/BackingYouUp-App" target="_blank" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/nzcDwPt/backing-you-up.jpg" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Backing You Up app <span class="code">&#47;&gt;</span></p>
+    </a>
+    
+    <a href="https://codeforces.com/profile/.waliul." target="_blank" class="project project-tile"> 
+      <img class="project-image" src="https://i.ibb.co/fHfjgCb/codeforces-profile.png" alt="project"/> 
+      <p class="project-title"> <span class="code">&lt;</span> Codeforces Profile <span class="code">&#47;&gt;</span></p>
+    </a>
+    
+  </div>
+  
+  <a href="https://codepen.io/waliul" class="btn btn-show-all" target="_blank">Show All <i class="far fa-hand-point-right"></i></a>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-section-header">
+    <h2>Wanna work together, eh?</h2>
+    <p>What do you drink? Cha or Coffee?</p>
+  </div>
+  
+  <div class="contact-links">
+    <a href="https://facebook.com/love.makes.life.easy" target="_blank" class="btn contact-details"><i class="fab fa-facebook-square"></i> Facebook</a>
+    
+    <a href="https://github.com/waliul34" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub</a>
+    
+    <a href="https://www.linkedin.com/in/waliul-islam-sumon-97098a173/" target="_blank" class="btn contact-details"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    
+    <a href="mailto:00waliul00@gmail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a mail</a>
+    
+    <a href="tel:+8801709186979" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
+  </div>
+</section>
+
+<footer>
+  <p>**All the projects given are under development </p>
+  <p> &copy; Created by <a href="https://facebook.com/love.makes.life.easy" target="_blank"> Waliul Islam Sumon<i class="fab fa-free-code-camp"></i></a></p>
+</footer>
+</body>
+</html>
